@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#09091c">
+<title>أمير — عيد ميلاد ثلاثي الأبعاد 🎂</title>
+<style>
+:root{--gold:#ffd66b;--pink:#ff6bba;--cyan:#77efff;--white:#fff8f0;--muted:#c9c6e8}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:radial-gradient(ellipse at 50% 0%,#29205a 0,#11112d 42%,#070713 100%);overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+#stars{position:fixed;inset:0;overflow:hidden;pointer-events:none}
+.star{position:absolute;border-radius:50%;background:white;box-shadow:0 0 10px #fff;animation:twinkle 2.5s ease-in-out infinite alternate}
+.wrap{position:relative;z-index:1;width:min(800px,100%);margin:auto;padding:22px 16px 50px}
+.top{text-align:center;color:var(--cyan);font-size:.85rem;letter-spacing:.1em;margin:8px 0}
+h1{font-size:clamp(2.2rem,9vw,4.8rem);line-height:1.1;text-align:center;margin:13px 0;color:var(--gold);text-shadow:0 0 14px #ffd66b66,0 0 45px #ff6bba55}
+.sub{text-align:center;line-height:1.9;color:var(--muted);max-width:570px;margin:12px auto}
+.scene{height:330px;display:grid;place-items:center;perspective:850px;position:relative;margin:4px 0 18px;overflow:hidden}
+.stage{width:230px;height:230px;position:relative;transform-style:preserve-3d;animation:float 4s ease-in-out infinite;transform:rotateX(-9deg) rotateY(-15deg)}
+.cake3d{position:absolute;inset:0;transform-style:preserve-3d}
+.layer{position:absolute;left:35px;width:160px;height:65px;border-radius:15px;background:linear-gradient(90deg,#ff74b8,#ffbad9 35%,#ff6da9 72%,#cf397c);box-shadow:inset 0 -10px 0 #9c285f55,0 14px 25px #0006}
+.layer.one{top:112px;transform:translateZ(0)}
+.layer.two{top:70px;left:47px;width:136px;height:52px;background:linear-gradient(90deg,#7cddff,#e0fcff 35%,#7ad8ff 75%,#3893d1);transform:translateZ(18px)}
+.icing{position:absolute;top:104px;left:42px;width:146px;height:19px;border-radius:50%;background:#fff1f8;transform:translateZ(24px);box-shadow:0 4px 0 #ff8abf}
+.candle{position:absolute;left:111px;top:32px;width:10px;height:47px;border-radius:5px;background:repeating-linear-gradient(45deg,#fff 0 7px,#ff6bba 7px 13px);transform:translateZ(30px);box-shadow:0 0 8px #fff5}
+.flame{position:absolute;left:106px;top:8px;width:20px;height:29px;background:radial-gradient(ellipse at 50% 65%,#fff9a8 0 18%,#ffbd45 42%,#ff5c44 70%,transparent 72%);border-radius:50% 50% 45% 45%;transform:translateZ(30px);filter:drop-shadow(0 0 13px #ffb43c);animation:flame .65s ease-in-out infinite alternate}
+.plate{position:absolute;left:13px;top:158px;width:205px;height:48px;border-radius:50%;background:linear-gradient(#d6faff,#5f8ba9 45%,#1a2d4e 75%);transform:rotateX(68deg) translateZ(-2px);box-shadow:0 22px 22px #0008}
+.orbit{position:absolute;width:285px;height:110px;border:1px solid #77efff88;border-radius:50%;transform:rotateX(68deg) rotateZ(-15deg);box-shadow:0 0 18px #77efff22}
+.orbit:after{content:"";position:absolute;top:9px;left:20px;width:9px;height:9px;background:var(--gold);border-radius:50%;box-shadow:0 0 16px var(--gold)}
+.floatemoji{position:absolute;font-size:2rem;filter:drop-shadow(0 0 14px #ff6bba55);animation:drift 5s ease-in-out infinite}
+.e1{left:9%;top:27%}.e2{right:10%;top:22%;animation-delay:-1.4s}.e3{left:18%;bottom:15%;animation-delay:-2s}.e4{right:17%;bottom:13%;animation-delay:-.8s}
+.panel{border:1px solid #ffffff24;background:linear-gradient(135deg,#ffffff13,#ffffff06);border-radius:24px;padding:22px;margin:16px 0;box-shadow:0 20px 55px #0003;backdrop-filter:blur(10px)}
+.panel h2{color:var(--gold);margin:0 0 10px;font-size:1.35rem}
+.panel p{line-height:2;color:#f0edff;margin:8px 0}
+.center{text-align:center}.hidden{display:none!important}.reveal{animation:reveal .6s ease both}
+.btn{border:0;border-radius:999px;padding:13px 19px;font-weight:800;transition:transform .2s,filter .2s}
+.btn:active{transform:scale(.96)}
+.gold{background:linear-gradient(110deg,#fff0a5,#ffc34f);color:#251a3d;box-shadow:0 7px 25px #ffd66b30}
+.glass{background:#ffffff10;color:white;border:1px solid #ffffff3a}
+.buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:17px}
+.gift{font-size:3.5rem;display:block;animation:float 2.8s ease-in-out infinite}
+.progress{display:flex;gap:7px;justify-content:center;margin:10px}.dot{height:7px;width:7px;border-radius:50%;background:#ffffff35}.dot.on{background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.quote{font-size:1.15rem;font-weight:750;color:white}
+.footer{text-align:center;color:#9d9abf;font-size:.84rem;line-height:1.9;margin-top:25px}
+.confetti{position:fixed;z-index:8;top:-20px;width:8px;height:13px;pointer-events:none;animation:fall linear forwards}
+@keyframes float{0%,100%{transform:translateY(0) rotateX(-9deg) rotateY(-15deg)}50%{transform:translateY(-12px) rotateX(4deg) rotateY(15deg)}}
+@keyframes flame{to{transform:translateZ(30px) scale(.88) rotate(4deg)}}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-18px) rotate(8deg)}}
+@keyframes twinkle{from{opacity:.2;transform:scale(.7)}to{opacity:1;transform:scale(1.2)}}
+@keyframes reveal{from{opacity:0;transform:translateY(15px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.1}}
+@media(max-width:420px){.scene{height:300px}.stage{transform:scale(.88)}.panel{padding:18px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+<main class="wrap">
+  <div class="top">✦ A SPECIAL DAY · A SPECIAL FRIEND ✦</div>
+  <h1>عيد ميلاد سعيد<br>يا أمير 👑</h1>
+  <p class="sub">اليوم مو يوم عادي… اليوم نحتفل بالشخص اللي كبر سنة، بس مستوى النضج بعده يحتاج تحديث 😂❤️</p>
+
+  <div class="scene" aria-label="كعكة عيد ميلاد ثلاثية الأبعاد">
+    <div class="orbit"></div><span class="floatemoji e1">🎈</span><span class="floatemoji e2">✨</span><span class="floatemoji e3">🎁</span><span class="floatemoji e4">💎</span>
+    <div class="stage"><div class="cake3d">
+      <div class="plate"></div><div class="layer one"></div><div class="layer two"></div><div class="icing"></div><div class="candle"></div><div class="flame"></div>
+    </div></div>
+  </div>
+
+  <div class="center buttons">
+    <button class="btn gold" id="start">افتح المفاجأة ثلاثية الأبعاد 🎁</button>
+    <button class="btn glass" id="party">خلّي الاحتفال يولّع 🎊</button>
+  </div>
+
+  <section class="panel center" id="intro">
+    <h2>أمير، عندك 3 مراحل للمفاجأة 👀</h2>
+    <p>كل زر يفتح لك رسالة جديدة: نكتة، كلام من القلب، وبالنهاية أمنية إلك. لا تستعجل… حتى الهدايا إلها مراحل فتح 😂</p>
+  </section>
+
+  <section class="panel center hidden" id="s1">
+    <span class="gift">🎁</span><div class="progress"><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div>
+    <h2>المرحلة الأولى: فحص الشخصية 😂</h2>
+    <p class="quote">يا أمير، بعد تحليل دقيق اكتشفنا أنك إصدار نادر!</p>
+    <p>نادر ترد بسرعة، نادر تعترف بالغلط، ونادر تعزم أصحابك على حسابك. ومع ذلك نحبك… لأن الصداقة أحيانًا تحتاج صبر أكثر من الإنترنت الضعيف 🤣</p>
+    <div class="buttons"><button class="btn gold next" data-id="s2">افتح الرسالة اللي بعدها ❤️</button></div>
+  </section>
+
+  <section class="panel center hidden" id="s2">
+    <span class="gift">💌</span><div class="progress"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></div>
+    <h2>المرحلة الثانية: كلام من القلب</h2>
+    <p class="quote">كل عام وإنت بخير يا أمير، يا صاحبي وأخوي اللي اختارته الأيام إلي.</p>
+    <p>أتمنى سنتك الجديدة تكون أخف على قلبك، وأوسع بأحلامك، ومليانة أيام تضحك بيها من صدگ. الله يرزقك راحة البال والتوفيق والناس الطيبة اللي تشبه قلبك.</p>
+    <p>نمون عليك ونطقطق طول الوقت، بس ورا المزح أكو محبة صادقة. الصديق الحقيقي مو بس شخص يضحك وياك؛ هو شخص تتمنى له الخير حتى لو ما گلتها كل يوم. ❤️</p>
+    <div class="buttons"><button class="btn gold next" data-id="s3">آخر مرحلة… افتحها 👑</button></div>
+  </section>
+
+  <section class="panel center hidden" id="s3">
+    <span class="gift">👑</span><div class="progress"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></div>
+    <h2>المرحلة الثالثة: أمنية إلك ✨</h2>
+    <p class="quote">يا رب تكون هالسنة بداية لأشياء حلوة انتظرتها طويلًا.</p>
+    <p>تنجح بشي تتمناه، وتفرح فرحة تنسيك التعب، وتبقى ضحكتك حاضرة حتى بالأيام الثقيلة. وتذكّر: العمر مجرد رقم… بس إذا استمريت تتصرف مثل الأطفال، السنة الجاية هديتك راح تكون مصاصة 😂🎮</p>
+    <h2>كل عام وإنت أخ وصديق عزيز يا أمير ❤️</h2>
+    <div class="buttons"><button class="btn gold" id="final">افتح الخاتمة الاحتفالية 🥳</button><button class="btn glass" id="restart">إعادة المفاجأة ↻</button></div>
+  </section>
+
+  <section class="panel center hidden" id="ending">
+    <div style="font-size:5rem;filter:drop-shadow(0 0 20px #ffd66b88)">🎂</div>
+    <h2>هذا يومك يا أمير!</h2><p class="quote">ضحكتك تدوم، وأيامك تزهر، وأمنياتك تصير واقعًا بإذن الله.</p><p>من صديق يتمنى لك كل الخير — عيد ميلاد سعيد! 🎉</p>
+  </section>
+  <div class="footer">صُممت بمحبة لأمير ❤️<br>ملف مستقل يعمل محليًا؛ لا يحتاج استضافة أو اتصال إنترنت.</div>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+for(let i=0;i<95;i++){const s=document.createElement('b');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.width=s.style.height=(1+Math.random()*2.5)+'px';s.style.animationDelay=Math.random()*3+'s';$('stars').appendChild(s)}
+function party(n=90){const colors=['#ffd66b','#ff6bba','#77efff','#d8b4fe','#fff'];for(let i=0;i<n;i++){const c=document.createElement('i');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.background=colors[Math.floor(Math.random()*colors.length)];c.style.animationDuration=(2+Math.random()*3)+'s';c.style.animationDelay=Math.random()*.6+'s';c.style.borderRadius=Math.random()>.5?'50%':'2px';document.body.appendChild(c);setTimeout(()=>c.remove(),6000)}}
+function show(id){$(id).classList.remove('hidden');$(id).classList.add('reveal');setTimeout(()=>$(id).scrollIntoView({behavior:'smooth',block:'center'}),80)}
+$('start').onclick=()=>{show('s1');$('intro').classList.add('hidden');$('start').disabled=true;$('start').textContent='المفاجأة بدأت! 🎉';party(45)};
+$('party').onclick=()=>party(140);
+document.querySelectorAll('.next').forEach(b=>b.onclick=()=>{show(b.dataset.id);party(45)});
+$('final').onclick=()=>{show('ending');party(190)};
+$('restart').onclick=()=>{['s1','s2','s3','ending'].forEach(id=>$(id).classList.add('hidden'));$('intro').classList.remove('hidden');$('start').disabled=false;$('start').textContent='افتح المفاجأة ثلاثية الأبعاد 🎁';window.scrollTo({top:0,behavior:'smooth'})};
+})();
+</script>
+</body>
+</html>
